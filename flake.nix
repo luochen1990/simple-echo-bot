@@ -11,7 +11,7 @@
     eachSystem = f: nixpkgs.lib.genAttrs supportedSystems (system: f rec {
       inherit system;
       pkgs = import nixpkgs { inherit system; };
-      python3 = pkgs.python3; # use pkgs.python3.withPackages (p: []) if you need more python packages in nixpkgs
+      python3 = pkgs.python3;
       py-version = pkgs.python3.version;
     });
   in
@@ -34,9 +34,9 @@
     apps = eachSystem ({system, pkgs, ...}: {
       default = {
         type = "app";
-        program = "${pkgs.writeShellScript "funix-app" ''
+        program = "${pkgs.writeShellScript "bot" ''
           source ${self.devShells.${system}.default.shellHook}
-          funix ./src
+          python src/bot.py
         ''}";
       };
     });

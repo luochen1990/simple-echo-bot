@@ -7,7 +7,7 @@ include = ["src"]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<4"
-nonebot2 = {extras = ["fastapi"], version = "^2.3.2"}
+nonebot2 = {extras = ["fastapi", "httpx"], version = "^2.3.2"}
 nb-cli = "^1.4.1"
 nonebot-adapter-telegram = "^0.1.0b17"
 nonebot-adapter-qq = "^1.4.4"

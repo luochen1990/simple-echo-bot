@@ -20,15 +20,16 @@ Simple Echo Bot
 用法
 ----
 
-方式1, 不想 git clone 代码, 可以直接以 nix flake 运行 (已经安装 nix 的情况下可用)
+方式1, 不想 git clone 代码, 也不想准备专门的 python 环境, 可以直接以 nix flake 运行 (已经安装 nix 的情况下可用)
 
 ```bash
 nix run github:luochen1990/simple-echo-bot
 ```
 
-方式2, git clone 后在项目目录下运行
+方式2, 不想装 nix, 但有现成的满足条件的 python 环境, 可以 git clone 后在项目目录下运行
 
 ```bash
+poetry shell
 python src/bot.py
 ```
 
@@ -41,3 +42,5 @@ export TELEGRAM_BOTS='[{"token": "1234567890:ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHI
 ```
 
 配置方式2, 修改 .env.prod 文件 (当然这个方式就只有在你 git clone 代码之后才能用了)
+
+注意以上是以 telegram 为例子, 如果是其他 IM, 则需要去 [nonebot的适配器商店](https://nonebot.dev/store/adapters) 里找到对应的适配器, 用 `poetry add` 安装, 并从它的 github README 文档里查看如何配置
